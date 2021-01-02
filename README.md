@@ -7,13 +7,13 @@ Then run:<br>
 `./suse-hacollect -f 2020-11-25 -c 123456 -u`<br>
 
 Replace options:
-`Usage of ./suse-hacollect:
+Usage of ./suse-hacollect:
   -c string
         Add CASENUM to tarball filename
   -f string
         Gather data for issue starting from date, using format: yyyy-mm-dd
   -u    Automatically upload to SUSE via https.  (https port 443 outbound required)
-  -v    Output version information`
+  -v    Output version information
 
 This script is designed to collect data from an SAP/HA cluster running SLES. It collects all data needed by support teams to analyze most cluster issues. What does it install and collect?
 
