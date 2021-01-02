@@ -31,3 +31,6 @@ suse-hacollect -f 2020-08-15
 
 Since there may be things going wrong with the cluster before they are ultimately noticed, leave enough time in the start date to account for this. For example, if a node was fenced on 2020-09-12 at 00:23, then use the previous day as the start date and run:
 suse-hacollect -f 2020-09-11
+
+## To compile yourself
+Make sure you have go installed then clone the repo and run: go build
