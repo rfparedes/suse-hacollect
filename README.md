@@ -18,9 +18,9 @@ Then run the following replacing -f and other options:<br>
 ## Details and Purpose
 This script is designed to collect data from an SAP/HA cluster running SLES. It collects all data needed by support teams to analyze most cluster issues. What does it install and collect?
 
-    Installs supportutils-plugin-ha-sap (if available) on all nodes
-    Collects supportconfig from all nodes in cluster
-    Collects hb_report
+* Installs supportutils-plugin-ha-sap (if available) on all nodes
+* Collects supportconfig from all nodes in cluster
+* Collects hb_report
 
 It is meant to solve the difficulty obtaining the correct data from customers, which is necessary when diagnosing complex cluster issues. It also has a supportconfig hang detector (which happens sometimes) so that user intervention is not needed to fix.
 
