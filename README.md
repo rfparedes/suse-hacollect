@@ -1,4 +1,11 @@
 # suse-hacollect
+
+## Quickstart
+To run, download the release to one of the cluster nodes:
+`wget https://github.com/rfparedes/suse-hacollect/releases/download/v1.0.0/suse-hacollect; chmod +x suse-hacollect`
+Then run:
+`./suse-hacollect -f 2020-11-25 -c 123456 -u` 
+
 This script is designed to collect data from an SAP/HA cluster running SLES. It collects all data needed by support teams to analyze most cluster issues. What does it install and collect?
 
     Installs supportutils-plugin-ha-sap (if available) on all nodes
