@@ -38,8 +38,20 @@ func main() {
 		flag.PrintDefaults()
 		return
 	}
-	header()
+
+	// Create tmpdir first so we can start logging to it
 	tmpDir := createTmpDir()
+
+	// Log to file
+	f, err := os.OpenFile(tmpDir+"/hacollect.log", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
+	if err != nil {
+		log.Print("Error opening logfile: ", err)
+	}
+	wrt := io.MultiWriter(os.Stdout, f)
+	log.SetOutput(wrt)
+
+	log.Print("Created tmpdir " + tmpDir)
+	header()
 	localHostname := getLocalHostname()
 	log.Print("Local hostname is " + localHostname)
 	installPkgs(false, localHostname)
@@ -51,6 +63,7 @@ func main() {
 		log.Print("Remote Hostname is " + remoteHostname)
 		runSupportconfig(true, remoteHostname, tmpDir)
 	}
+	f.Close()
 	report(tmpDir, c.caseNum, c.upload)
 	footer()
 }
@@ -87,7 +100,6 @@ func createTmpDir() string {
 	if err != nil {
 		log.Fatal("Failed to create temp dir: ", err)
 	}
-	log.Print("Created tmpdir " + dir)
 	return dir
 }
 
