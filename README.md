@@ -15,7 +15,7 @@ Then run the following replacing -f and other options:<br>
       -u    Automatically upload to SUSE via https.  (https port 443 outbound required)
       -v    Output version information
 
-# For ppc
+## For ppc
 Download the release to one of the cluster nodes:<br>
 `wget https://github.com/rfparedes/suse-hacollect/releases/download/v1.0.0/suse-hacollect-ppc64le; chmod +x suse-hacollect` <br>
 ## Details and Purpose
