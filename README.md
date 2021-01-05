@@ -2,9 +2,24 @@
 
 ## Quickstart
 Download the release to one of the cluster nodes:<br>
-`wget https://github.com/rfparedes/suse-hacollect/releases/download/v1.0.0/suse-hacollect; chmod +x suse-hacollect` <br>
+`wget https://github.com/rfparedes/suse-hacollect/releases/download/v1.0.0/suse-hacollect-x86_64; chmod +x suse-hacollect-x86_64` <br>
 Then run the following replacing -f and other options:<br>
-`./suse-hacollect -f 2020-11-25 -c 123456 -u`<br>
+`./suse-hacollect-x86_64 -f 2020-11-25 -c 123456 -u`<br>
+
+    Replace options:
+    Usage of ./suse-hacollect:
+      -c string
+            Add CASENUM to tarball filename
+      -f string
+            Gather data for issue starting from date, using format: yyyy-mm-dd
+      -u    Automatically upload to SUSE via https.  (https port 443 outbound required)
+      -v    Output version information
+
+## For ppc
+Download the release to one of the cluster nodes:<br>
+`wget https://github.com/rfparedes/suse-hacollect/releases/download/v1.0.0/suse-hacollect-ppc64le; chmod +x suse-hacollect-ppc64le` <br>
+Then run the following replacing -f and other options:<br>
+`./suse-hacollect-ppc64le -f 2020-11-25 -c 123456 -u`<br>
 
     Replace options:
     Usage of ./suse-hacollect:
