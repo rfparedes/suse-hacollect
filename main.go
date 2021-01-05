@@ -57,9 +57,11 @@ func main() {
 	installPkgs(false, localHostname)
 	runSupportconfig(false, localHostname, tmpDir)
 	runHbReport(localHostname, tmpDir, c.fromDate)
-	remoteHostname := getRemoteHostname(tmpDir, localHostname)
-	installPkgs(true, remoteHostname)
-	if remoteHostname != "" {
+	remoteHostname, err := getRemoteHostname(tmpDir, localHostname)
+	if err != nil {
+		log.Print("Cannot get data from unknown remote host")
+	} else {
+		installPkgs(true, remoteHostname)
 		log.Print("Remote Hostname is " + remoteHostname)
 		runSupportconfig(true, remoteHostname, tmpDir)
 	}
@@ -118,11 +120,11 @@ func getLocalHostname() (name string) {
 }
 
 // Function to get remote hostname
-func getRemoteHostname(tmpDir string, localHostname string) (name string) {
+func getRemoteHostname(tmpDir string, localHostname string) (name string, err error) {
 	f, err := os.Open(tmpDir + "/members.txt")
 	if err != nil {
-		log.Print("Failed to open members.txt file: ", err)
-		return ""
+		log.Print("Failed to open members.txt file: Cannot get remote hostname")
+		return "", err
 	}
 	defer f.Close()
 	line := ""
@@ -133,9 +135,9 @@ func getRemoteHostname(tmpDir string, localHostname string) (name string) {
 	}
 	s := strings.Split(line, " ")
 	if s[0] == localHostname {
-		return s[1]
+		return s[1], err
 	}
-	return s[0]
+	return s[0], err
 }
 
 // Function to print header
