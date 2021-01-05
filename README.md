@@ -16,7 +16,7 @@ Then run the following replacing -f and other options:<br>
       -v    Output version information
 
 # For ppc
-Download the release to one of the cluster nodes:
+Download the release to one of the cluster nodes:<br>
 `wget https://github.com/rfparedes/suse-hacollect/releases/download/v1.0.0/suse-hacollect-ppc64le; chmod +x suse-hacollect` <br>
 ## Details and Purpose
 This script is designed to collect data from an SAP/HA cluster running SLES. It collects all data needed by support teams to analyze most cluster issues. What does it install and collect?
